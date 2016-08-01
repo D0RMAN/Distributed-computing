@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if user == None %}
+		<h1 class="text-center">Hello World</h1>
+	{% else %}
+		<h1 class="text-center">Hello {{user}}</h1>
+	{% endif %}
+{% endblock %}

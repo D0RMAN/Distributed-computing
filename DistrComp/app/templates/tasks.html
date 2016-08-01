@@ -1,0 +1,44 @@
+{% extends "base_with_navbar.html" %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/tasks.css">
+{% endblock %}
+
+{% block content %}
+	{% if not tasks %}
+		<h1 class="centered-text">No tasks here. Maybe later?</h1>
+	{% else %}
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Tasks</h1>
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th class="centered-text"><h4>ID</h4></th>
+							<th class="centered-text"><h4>User</h4></th>
+							<th><h4>Title</h4></th>
+							<th><h4>Status</h4></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for task_ in tasks %}
+							{% set (user_nickname, task)  = task_ %}
+							<tr>
+								<td class="centered-text"><h4>{{ task.task_id }}</h4></td>
+								<td class="col-lg-2 col-md-3 col-sm-2 col-xs-2 centered-text"><h4>{{ user_nickname }}</h4></td>
+								<td><h4>{{ task.title }}</h4></td>
+								<td class="col-lg-2 col-md-3 col-sm-2 col-xs-2"><h4>{{ task.status }}</h4></td>
+								<td class="col-lg-1 col-md-2 col-sm-2 col-xs-3">
+									<a class="btn btn-primary btn-lg btn-block centered" href="{{ url_for('task', id=task.task_id) }}">
+										Learn more
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

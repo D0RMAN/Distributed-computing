@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/signin.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<form class="form-signin" action="" method="POST" name="signin">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			{{ form.hidden_tag() }}
+			{{ form.email.label(class='sr-only') }}
+			{{ form.email(id="inputEmail", class="form-control", placeholder="Email address", autofocus="") }}
+			{{ form.password.label(class='sr-only') }}
+			{{ form.password(id="inputPassword", class="form-control", placeholder="Password") }}
+			<div class="checkbox">
+				<label for="remember-me">
+					{{ form.remember_me(id="remember-me") }}
+					Remember Me
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<div class="checkbox">
+				Need an account?
+				<a href={{ url_for('signup') }}>Sing Up!</a>
+			</div>
+		</form>		
+	</div>
+{% endblock %}
+
+{% block flashed_messages %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class="list-group error-msg-list">
+				{% for message in messages %}
+					<li class="list-group-item error-msg">{{ message }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+{% endblock %}

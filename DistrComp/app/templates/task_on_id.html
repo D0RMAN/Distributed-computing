@@ -1,0 +1,25 @@
+{% extends "base_with_navbar.html" %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/task_on_id.css">
+{% endblock %}
+
+{% block content %}
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1 class="with-bottom-margin">{{ task.title }}</h1>
+			<blockquote class="with-bottom-margin">
+				<p>{{ task.description }}</p>
+				<footer>
+					<a href="{{ url_for('user', id=author.user_id) }}">
+						<span>Author: {{ author.name }} {{ author.surname }}</span>
+					</a>
+				</footer>
+			</blockquote>
+			<a class="btn btn-primary btn-lg btn-block" href="{{ url_for('download_lib', lib_filename=task.lib_filename) }}">
+				Get the library
+			</a>
+		</div>
+	</div>
+{% endblock %}

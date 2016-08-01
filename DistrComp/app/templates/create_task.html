@@ -1,0 +1,22 @@
+{% extends "base_with_navbar.html" %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/create_task.css">
+{% endblock %}
+
+{% block content %}
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Create Task</h1>
+			<form class="form-signin" action="" method="POST" name="create-task" enctype="multipart/form-data">
+				{{ form.hidden_tag() }}
+				{{ form.title.label(class='sr-only') }}
+				{{ form.title(id="inputTitle", class="form-control", placeholder="Task title", autofocus="") }}
+				{{ form.description.label(class='sr-only') }}
+				{{ form.description(id="inputDescription", class="form-control", cols=30, rows=20, placeholder="Short description") }}
+				{{ form.library(id="inputLibrary") }}
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

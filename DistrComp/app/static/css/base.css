@@ -1,0 +1,10 @@
+.error-msg-list {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.error-msg {
+  background-color: #f00;
+  color: #fff  
+}

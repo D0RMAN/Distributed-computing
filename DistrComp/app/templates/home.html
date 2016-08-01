@@ -1,0 +1,46 @@
+{% extends "base_with_navbar.html" %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/home.css">
+{% endblock %}
+
+{% block content %}
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Home</h1>
+			<table class="table table-hover table-bordered" id="user-info-table">
+<!-- 				<thead>
+					<tr>
+						<th></th>
+					</tr>
+					<tr>
+						<th></th>
+					</tr>
+				</thead>
+ -->				<tbody>
+					<tr>
+						<td>Nickname</td>
+						<td>{{ current_user.nickname }}</td>
+					</tr>
+					<tr>
+						<td>Name</td>
+						<td>{{ current_user.name }}</td>
+					</tr>
+					<tr>
+						<td>Surname</td>
+						<td>{{ current_user.surname }}</td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td>{{ current_user.email }}</td>
+					</tr>
+					<tr>
+						<td>Requisite</td>
+						<td>{{ current_user.requisite }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

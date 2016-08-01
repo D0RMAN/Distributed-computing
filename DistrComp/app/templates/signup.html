@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/signup.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<form class="form-signin" action="" method="POST" name="signup">
+			<h2 class="form-signin-heading">Please sign up</h2>
+			{{ form.hidden_tag() }}
+			{{ form.email.label(class='sr-only') }}
+			{{ form.email(type="email", id="inputEmail", class="form-control", placeholder="Email address", required="", autofocus="") }}
+			{{form.nickname(id="inputNickname", class="form-control", placeholder="Nickname", required="", autofocus="")}}
+			{{form.password(id="inputPassword", class="form-control", placeholder="Password", required="")}}
+			{{form.password_confirm(id="inputPasswordConfirm", class="form-control", placeholder="Password Confirm", required="")}}
+			{{form.name(id="inputName", class="form-control", placeholder="Name", required="")}}
+			{{form.surname(id="inputSurname", class="form-control", placeholder="Surname", required="")}}
+			{{form.requisite(id="inputRequisite", class="form-control", placeholder="WEBMoney Requisites", required="")}}
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+		</form>		
+	</div>
+{% endblock %}
+
+{% block flashed_messages %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class="list-group error-msg-list">
+				{% for message in messages %}
+					<li class="list-group-item error-msg">{{ message }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block navbar_css %}
+	<link rel="stylesheet" href="/static/css/navbar-fixed-top.css">
+{% endblock %}
+
+{% block navbar %}
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href={{ url_for('create_task') }}>Create Task</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href={{ url_for('home') }}>Home</a></li>
+				<li><a href={{ url_for('tasks') }}>Tasks</a></li>
+				<!-- <li class="active"><a href={{ url_for('home') }}>Home</a></li> -->
+				<!-- <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#about">About</a></li> -->
+				<!-- <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#contact">Contact</a></li> -->
+<!-- 				<li class="dropdown">
+					<a href="https://getbootstrap.com/examples/navbar-fixed-top/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Action</a></li>
+						<li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Another action</a></li>
+						<li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>
+						<li role="separator" class="divider"></li>
+						<li class="dropdown-header">Nav header</li>
+						<li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Separated link</a></li>
+						<li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">One more separated link</a></li>
+					</ul>
+				</li>
+ -->			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href={{ url_for('download_the_app') }}>Download Main App</a></li>
+				<li><a href={{ url_for('signout') }}>Sign Out</a></li>
+				<!-- <li class="active"><a href="./Fixed Top Navbar Example for Bootstrap_files/Fixed Top Navbar Example for Bootstrap.html">Fixed top <span class="sr-only">(current)</span></a></li> -->
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+</nav>
+{% endblock %}
+
+{% block flashed_messages %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class="list-group error-msg-list">
+				{% for message in messages %}
+					<li class="list-group-item error-msg">{{ message }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}	
+{% endblock %}
